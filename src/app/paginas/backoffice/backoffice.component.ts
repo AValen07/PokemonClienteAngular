@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BackofficeComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+
+  }//constructor
 
   ngOnInit() {
-  }
 
-}
+  }//ngOnInit
+
+}//BackofficeComponent

@@ -1,1 +1,7 @@
-<p>backoffice works!</p>
+<form [formGroup]="formulario" (ngSubmit)="enviar(formulario.value)" >
+    <div class="form-group">
+        <input class="form-control" formControlName="nombre" type="text" placeholder="usuario">
+        <small *ngIf="formulario.controls.nombre.invalid && formulario.controls.nombre.dirty" class="text-danger">Minimo 2 caracteres, maximo 100</small>
+        <small *ngIf="formulario.controls.nombre.valid" class="text-success">Nombre valido</small>
+    </div>
+</form> 

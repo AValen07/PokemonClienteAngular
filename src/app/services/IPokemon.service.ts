@@ -1,4 +1,5 @@
 import { Observable } from "rxjs";
+import { Pokemon } from '../model/pokemon';
 
 export interface IPokemonService {
 
@@ -10,4 +11,10 @@ export interface IPokemonService {
     getPokemon(id:number):Observable<any>;
 
     getAllPokemon():Observable<any>;
+
+    crear(pokemon:Pokemon):Observable<Pokemon>;
+
+    modificar(pokemon:Pokemon):Observable<Pokemon>;
+
+    eliminar(id:number): Observable<Pokemon>;
 }

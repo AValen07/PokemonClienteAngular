@@ -2,15 +2,31 @@
 <div class="container">
     
     <div class="row">
+        <div class="col-6">
         <input type="text" [(ngModel)]="nombrePokemon" placeholder="busqueda por nombre">
-        <input type="checkbox" *ngFor="let habilidad of habilidades" value="{{habilidad.nombre}}">        
+        </div>
+        <br>
+        <div class="col-6" >            
+            <ul>
+                <li *ngFor="let habilidad of habilidadesFiltro">
+                    <input type="checkbox"
+                            name="habilidadesFiltro"
+                            value="{{habilidad.value}}"
+                            [ngModelOptions]={standAlone:true}
+                            [(ngModel)]="habilidad.checked"/>
+                            {{habilidad.value}}                            
+                </li>
+            </ul>
+             <button (click)="actualizarHabilidades(habilidadesFiltro)">Filtrar</button>
+            <br>     
+        </div>
     </div>
     <div class="row">
         <div class="col-6">
             <ul class="list-group">
-                <li *ngFor="let pokemon of pokemones | filtroPokemon:nombrePokemon"
-                (click)="pokemonSeleccionado=pokemon"
-                class="list-group-item">
+                <li *ngFor="let pokemon of pokemones | filtroPokemon:nombrePokemon :habilidadesActualizadas"
+                    (click)="pokemonSeleccionado=pokemon"
+                    class="list-group-item">
                     {{pokemon.id}} {{pokemon.nombre}}
                 </li>
             </ul>

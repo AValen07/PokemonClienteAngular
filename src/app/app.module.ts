@@ -8,13 +8,17 @@ import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { InicioComponent } from './paginas/inicio/inicio.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FiltroPokemonPipe } from './filtros/filtro-pokemon.pipe';
+import { LoginComponent } from './paginas/login/login.component';
+import { BackofficeComponent } from './paginas/backoffice/backoffice.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     InicioComponent,
-    FiltroPokemonPipe
+    FiltroPokemonPipe,
+    LoginComponent,
+    BackofficeComponent
   ],
   imports: [
     BrowserModule,

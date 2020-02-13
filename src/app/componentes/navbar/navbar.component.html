@@ -1,1 +1,26 @@
-<p>navbar works!</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    estaLogueado = {{usuarioService.estaLogueado()}}
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li *ngFor="let ruta of rutas" class="nav-item active">
+                <a [routerLink]="[ruta.ruta]" routerLinkActive="router-link-active" class="nav-link">{{ruta.nombre}}</a>
+            </li> 
+            <!--Rutas si el usuario esta logueado o no-->
+            <li *ngIf="!usuarioService.estaLogueado()" class="nav-item active">
+                <a [routerLink]="'/login'" routerLinkActive="router-link-active" class="nav-link">Iniciar Sesion</a>
+            </li>
+            <li *ngIf="usuarioService.estaLogueado()" class="nav-item active">
+                <a [routerLink]="'/backoffice'" routerLinkActive="router-link-active" class="nav-link">Backoffice</a>
+            </li>  
+            <li *ngIf="usuarioService.estaLogueado()" class="nav-item active">
+                <a (click)="salir()" class="nav-link">Cerrar Sesion</a>
+            </li>      
+        </ul>  
+    </div>
+</nav>

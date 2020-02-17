@@ -15,8 +15,8 @@ export class Pokemon implements IPokemon {
 
     
     constructor(){
-        this.nombre='';
-        this.id=0;        
+        this.id=0; 
+        this.nombre='';               
         this.habilidades = new Array<Habilidad>();
     }
 

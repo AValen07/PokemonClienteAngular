@@ -36,8 +36,7 @@ export class InicioComponent implements OnInit {
       (lista)=>{
         console.trace('hace cosas %o',lista);
         this.pokemones=lista;
-      }
-    )
+      });
     this.habilidadService.getAllHabilidades().subscribe(el=>{
       this.habilidades=el;
       this.habilidadesFiltro = this.habilidades.map(el => {

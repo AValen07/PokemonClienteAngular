@@ -1,7 +1,26 @@
-<form [formGroup]="formulario" (ngSubmit)="enviar(formulario.value)" >
-    <div class="form-group">
-        <input class="form-control" formControlName="nombre" type="text" placeholder="usuario">
-        <small *ngIf="formulario.controls.nombre.invalid && formulario.controls.nombre.dirty" class="text-danger">Minimo 2 caracteres, maximo 100</small>
-        <small *ngIf="formulario.controls.nombre.valid" class="text-success">Nombre valido</small>
+<div class="container">
+    
+    <div class="row">
+        <div class="col-6">
+            <ul class="list-group">
+                <li *ngFor="let pokemon of pokemones"   
+                    (click)="seleccionarPokemon(pokemon)"                 
+                    class="list-group-item">
+                    {{pokemon.id}} {{pokemon.nombre}}
+                    <span (click)="eliminar(pokemon.id)" class="fas fa-trash-alt"></span>
+                </li>
+            </ul>
+            <button class="btn btn-primary" (click)="nuevo()">Nuevo</button>
+        </div>
+
+        <div class="col">            
+            <form [formGroup]="formularioPokemon" (ngSubmit)="enviar(formularioPokemon.value)" >          
+                <div class="form-group">  
+                    <input type="hidden" formControlName="id" >                  
+                    <input class="form-control"  type="text" formControlName="nombre" placeholder="nombre pokemon">                    
+                </div>                
+                <input type="submit" class="btn btn-primary" [disabled]="formularioPokemon.invalid" value="{{(pokemonSeleccionado.id==0)?'Crear':'Modificar'}}">
+            </form>  
+        </div>       
     </div>
-</form> 
+</div>

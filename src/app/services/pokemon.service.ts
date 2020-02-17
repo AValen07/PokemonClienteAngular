@@ -33,8 +33,10 @@ export class PokemonService implements IPokemonService{
     return this.http.post<Pokemon>(url,pokemon);
   }
 
-  modificar(pokemon: Pokemon): Observable<Pokemon> {
-    throw new Error("Method not implemented.");
+  modificar(id:number, pokemon: Pokemon): Observable<Pokemon> {
+    const url=`http://localhost:8080/pokemon-rest/api/pokemon/${id}`;
+
+    return this.http.put<Pokemon>(url,pokemon);
   }
 
   eliminar(id: number): Observable<Pokemon> {

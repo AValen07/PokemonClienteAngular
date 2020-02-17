@@ -19,8 +19,8 @@ export class LoginComponent implements OnInit {
 
     this.formulario=this._builder.group({
       //definir los FormControl == inputs
-      nombre: ['admin', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(15)]) ],
-      password:['1234567', Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(8)])]
+      nombre: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(15)]) ],
+      password:['', Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(8)])]
     });
 
   }//constructor

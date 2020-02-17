@@ -14,7 +14,7 @@ export interface IPokemonService {
 
     crear(pokemon:Pokemon):Observable<Pokemon>;
 
-    modificar(pokemon:Pokemon):Observable<Pokemon>;
+    modificar(id:number,pokemon:Pokemon):Observable<Pokemon>;
 
     eliminar(id:number): Observable<Pokemon>;
 }

@@ -19,7 +19,7 @@ export class UsuarioService implements IUsuarioService{
   }// constructor
 
   estaLogueado(): boolean {
-    console.trace('UsuarioService estaLogueado');
+    //console.trace('UsuarioService estaLogueado');
     let isLogged=this.storage.getItem('isLogged');
     if(this.storage.getItem('isLogged')){
       return true;

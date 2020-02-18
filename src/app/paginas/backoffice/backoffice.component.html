@@ -1,16 +1,22 @@
 <div class="container">
-    
+    <div *ngIf="showMensaje" class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{mensaje}}
+        <button (click)="showMensaje = !showMensaje" type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
     <div class="row">
+        
         <div class="col-6">
             <ul class="list-group">
                 <li *ngFor="let pokemon of pokemones"   
                     (click)="seleccionarPokemon(pokemon)"                 
-                    class="list-group-item">
+                    class="list-group-item {{(pokemonSeleccionado===pokemon)?'active':''}}">
                     {{pokemon.id}} {{pokemon.nombre}}
                     <span (click)="eliminar(pokemon.id)" class="fas fa-trash-alt"></span>
                 </li>
             </ul>
-            <button class="btn btn-primary" (click)="nuevo()">Nuevo</button>
+            <button class="btn btn-primary form-control mt-2" (click)="nuevo()">Nuevo</button>
         </div>
 
         <div class="col">            
@@ -19,7 +25,15 @@
                     <input type="hidden" formControlName="id" >                  
                     <input class="form-control"  type="text" formControlName="nombre" placeholder="nombre pokemon">                    
                 </div>                
-                <input type="submit" class="btn btn-primary" [disabled]="formularioPokemon.invalid" value="{{(pokemonSeleccionado.id==0)?'Crear':'Modificar'}}">
+                <input type="submit" class="btn btn-primary form-control" [disabled]="formularioPokemon.invalid" value="{{(pokemonSeleccionado.id==0)?'Crear':'Modificar'}}">
+            <!--   <label *ngFor="let habilidad of habilidadesFormulario">
+                    <input  type="checkbox"
+                            name="habilidades"
+                            value="{{habilidad.value}}"
+                            [ngModelOptions]={standAlone:true}
+                            [(ngModel)]="habilidad.checked"/>
+                            {{habilidad.value}}                            
+                </label>--> 
             </form>  
         </div>       
     </div>

@@ -26,7 +26,7 @@
             <ul class="list-group">
                 <li *ngFor="let pokemon of pokemones | filtroPokemon:nombrePokemon :habilidadesActualizadas"
                     (click)="pokemonSeleccionado=pokemon"
-                    class="list-group-item">
+                    class="list-group-item {{(pokemonSeleccionado===pokemon)?'active':''}}">
                     {{pokemon.id}} {{pokemon.nombre}}
                 </li>
             </ul>

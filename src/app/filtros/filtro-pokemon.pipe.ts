@@ -11,7 +11,7 @@ export class FiltroPokemonPipe implements PipeTransform {
     
 
     if(nombreBusqueda && '' !==nombreBusqueda.trim()){
-      resultado=datos.filter(el=>el.nombre.includes(nombreBusqueda));
+      resultado=datos.filter(el=>el.nombre.toLocaleLowerCase().includes(nombreBusqueda.toLocaleLowerCase()));
 
     }else{
       resultado=datos;

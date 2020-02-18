@@ -10,14 +10,14 @@
             <ul>
                 <li *ngFor="let habilidad of habilidadesFiltro">
                     <input type="checkbox"
-                            name="habilidadesFiltro"
-                            value="{{habilidad.value}}"
-                            [ngModelOptions]={standAlone:true}
-                            [(ngModel)]="habilidad.checked"/>
-                            {{habilidad.value}}                            
+                           name="habilidadesFiltro"
+                           value="{{habilidad.value}}"
+                           [ngModelOptions]={standAlone:true}
+                           [(ngModel)]="habilidad.checked"/>
+                           {{habilidad.value}}                            
                 </li>
             </ul>
-             <button (click)="actualizarHabilidades(habilidadesFiltro)">Filtrar</button>
+            <button (click)="actualizarHabilidades(habilidadesFiltro)">Filtrar</button>
             <br>     
         </div>
     </div>

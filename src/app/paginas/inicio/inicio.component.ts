@@ -52,5 +52,6 @@ export class InicioComponent implements OnInit {
   actualizarHabilidades(habili:Array<any>){
     this.habilidadesActualizadas=habili.filter(el=>el.checked);
     console.trace(this.habilidadesActualizadas);
-  }
+  }// actualizarHabilidades
+  
 }// InicioComponent

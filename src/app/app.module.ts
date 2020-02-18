@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FiltroPokemonPipe } from './filtros/filtro-pokemon.pipe';
 import { LoginComponent } from './paginas/login/login.component';
 import { BackofficeComponent } from './paginas/backoffice/backoffice.component';
+import { MensajeComponent } from './componentes/mensaje/mensaje.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { BackofficeComponent } from './paginas/backoffice/backoffice.component';
     InicioComponent,
     FiltroPokemonPipe,
     LoginComponent,
-    BackofficeComponent
+    BackofficeComponent,
+    MensajeComponent
   ],
   imports: [
     BrowserModule,

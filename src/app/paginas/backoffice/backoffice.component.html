@@ -19,21 +19,26 @@
             <button class="btn btn-primary form-control mt-2" (click)="nuevo()">Nuevo</button>
         </div>
 
-        <div class="col">            
+        <div class="col">      
+            {{formularioPokemon.value | json}}      
+            {{formularioPokemon.status | json}}      
             <form [formGroup]="formularioPokemon" (ngSubmit)="enviar(formularioPokemon.value)" >          
                 <div class="form-group">  
                     <input type="hidden" formControlName="id" >                  
                     <input class="form-control"  type="text" formControlName="nombre" placeholder="nombre pokemon">                    
                 </div>                
                 <input type="submit" class="btn btn-primary form-control" [disabled]="formularioPokemon.invalid" value="{{(pokemonSeleccionado.id==0)?'Crear':'Modificar'}}">
-            <!--   <label *ngFor="let habilidad of habilidadesFormulario">
-                    <input  type="checkbox"
-                            name="habilidades"
-                            value="{{habilidad.value}}"
-                            [ngModelOptions]={standAlone:true}
-                            [(ngModel)]="habilidad.checked"/>
-                            {{habilidad.value}}                            
-                </label>--> 
+                <div >
+                    <div *ngFor="let habilidad of habilidadesFormulario">
+                        <input 
+                               type="checkbox"
+                               name="habilidades"
+                               value="{{habilidad.value}}"
+                               (change)="cambioHabilidad(habilidad)"
+                               [checked]="habilidad.checked" />
+                               {{habilidad.name}}                                 
+                    </div>                           
+                </div>
             </form>  
         </div>       
     </div>

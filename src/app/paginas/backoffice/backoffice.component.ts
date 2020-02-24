@@ -155,7 +155,7 @@ export class BackofficeComponent implements OnInit {
     this.pokemonSeleccionado=pokemon;
     this.formularioPokemon.controls.nombre.setValue(this.pokemonSeleccionado.nombre);
     this.formularioPokemon.controls.id.setValue(this.pokemonSeleccionado.id);
-
+    
     while(this.formularioPokemon.get('habilidades').length!==0){
 
       this.formularioPokemon.get('habilidades').removeAt(0);

@@ -3,21 +3,19 @@
     
     <div class="row">
         <div class="col-6">
-        <input type="text" [(ngModel)]="nombrePokemon" placeholder="busqueda por nombre">
+        <input class="form-control" type="text" [(ngModel)]="nombrePokemon" placeholder="busqueda por nombre">
         </div>
         <br>
-        <div class="col-6" >            
-            <ul>
-                <li *ngFor="let habilidad of habilidadesFiltro">
-                    <input type="checkbox"
-                           name="habilidadesFiltro"
-                           value="{{habilidad.value}}"                           
-                           [ngModelOptions]={standAlone:true}
-                           [(ngModel)]="habilidad.checked"/>
-                           {{habilidad.name}}                            
-                </li>
-            </ul>
-            <button (click)="actualizarHabilidades(habilidadesFiltro)">Filtrar</button>
+        <div class="col-6" >   
+            <div *ngFor="let habilidad of habilidadesFiltro">
+                <input type="checkbox"
+                        name="habilidadesFiltro"
+                        value="{{habilidad.value}}"                           
+                        [ngModelOptions]={standAlone:true}
+                        [(ngModel)]="habilidad.checked"/>
+                        {{habilidad.name}}                            
+            </div>           
+            <button class="btn btn-primary" (click)="actualizarHabilidades(habilidadesFiltro)">Filtrar</button>
             <br>     
         </div>
     </div>
@@ -32,7 +30,7 @@
             </ul>
         </div>
         <div class="col">        
-            <p>{{pokemonSeleccionado.nombre}}</p> 
+            <h5>{{pokemonSeleccionado.nombre}}</h5> 
             <ul>
                 <li *ngFor="let habilidad of pokemonSeleccionado.habilidades"
                     class="list-group-item">
@@ -42,4 +40,3 @@
         </div>
     </div>
 </div>
-

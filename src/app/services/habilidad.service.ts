@@ -15,7 +15,7 @@ export class HabilidadService implements IHabilidadService{
     }// constructor
     
     getAllHabilidades(): Observable<any> {
-        const url=`http://localhost:8080/pokemon-rest/api/habilidad/`;
+        const url=`http://192.168.0.50:8080/pokemon-aitor/api/habilidad/`;
         console.trace('Ha llamado al metodo getAllHabilidades '+url);   
     
         return this.http.get(url);

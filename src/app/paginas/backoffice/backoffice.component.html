@@ -26,10 +26,6 @@
                     <input type="hidden" formControlName="id" >                  
                     <input class="form-control"  type="text" formControlName="nombre" placeholder="nombre pokemon">                    
                 </div>                
-                
-                <input type="submit" class="btn btn-primary form-control" [disabled]="formularioPokemon.invalid" value="{{(pokemonSeleccionado.id==0)?'Crear':'Modificar'}}">
-                <button class="btn btn-dark form-control mt-2" (click)="nuevo()">Nuevo pokemon</button> 
-
                 <div >
                     <div *ngFor="let habilidad of habilidadesFormulario">
                         <input 
@@ -42,9 +38,9 @@
                     </div>                           
                 </div>
 
-                
+                <input type="submit" class="btn btn-primary form-control" [disabled]="formularioPokemon.invalid" value="{{(pokemonSeleccionado.id==0)?'Crear':'Modificar'}}">
             </form> 
-            
+            <button class="btn btn-dark form-control mt-2" (click)="nuevo()">Nuevo pokemon</button>
         </div>       
     </div>
 </div>

@@ -151,14 +151,19 @@ export class BackofficeComponent implements OnInit {
     this.habilidadesFormulario.forEach(el=>{ el.checked=false});
   }
 
+  getFormArray():FormArray{
+    return <FormArray>this.formularioPokemon.get('habilidades');
+  }
+
   seleccionarPokemon(pokemon:Pokemon){
+    let habilidades = this.getFormArray();
     this.pokemonSeleccionado=pokemon;
     this.formularioPokemon.controls.nombre.setValue(this.pokemonSeleccionado.nombre);
     this.formularioPokemon.controls.id.setValue(this.pokemonSeleccionado.id);
     
-    while(this.formularioPokemon.get('habilidades').length!==0){
+    while(habilidades.length!==0){
 
-      this.formularioPokemon.get('habilidades').removeAt(0);
+      habilidades.removeAt(0);
       
     }
     
@@ -169,7 +174,7 @@ export class BackofficeComponent implements OnInit {
       const habildades = this.crearFormGroupHabilidad();
       habildades.get('nombre').setValue(habilidad.nombre);
       habildades.get('id').setValue(habilidad.id);
-      this.formularioPokemon.get('habilidades').push(habildades);
+      habilidades.push(habildades);
 
       this.habilidadesFormulario.forEach(elemento=>{
 
@@ -202,6 +207,7 @@ export class BackofficeComponent implements OnInit {
   }
 
   cambioHabilidad(habilidad:any){
+    let habilidades = this.getFormArray();
     console.debug(habilidad);
     habilidad.checked = !habilidad.checked
     console.debug(habilidad);
@@ -214,12 +220,12 @@ export class BackofficeComponent implements OnInit {
    
     if(habilidad.checked){
       
-      this.formularioPokemon.get('habilidades').push(habildades);
+      habilidades.push(habildades);
     }else{      
       const array = this.formularioPokemon.get('habilidades').value; //removeAt(id);
       const id=array.findIndex(el=> el.id===habilidad.value);
       console.debug(id);
-      this.formularioPokemon.get('habilidades').removeAt(id);
+      habilidades.removeAt(id);
     }
   }
   

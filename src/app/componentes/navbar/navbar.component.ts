@@ -11,7 +11,7 @@ import { RUTAS } from 'src/app/rutas';
 export class NavbarComponent implements OnInit {
 
   rutas:Array<any>;
-  constructor(private usuarioService:UsuarioService,
+  constructor(public usuarioService:UsuarioService,
               private router:Router) { 
     this.rutas=RUTAS;
     console.trace('NavbarComponent  constructor');

@@ -12,7 +12,7 @@ import { HabilidadService } from 'src/app/services/habilidad.service';
 export class InicioComponent implements OnInit {
 
 
-  
+  nombrePokemon:string;
   pokemones:Array<Pokemon>;
   pokemonSeleccionado:Pokemon;
   habilidades:Array<Habilidad>;
@@ -22,6 +22,7 @@ export class InicioComponent implements OnInit {
   constructor(private pokemonService:PokemonService,
               private habilidadService:HabilidadService) { 
     console.trace('InicioComponent constructor');
+    this.nombrePokemon='';
     this.pokemones = new Array<Pokemon>();
     this.pokemonSeleccionado = new Pokemon();
     this.habilidades = new Array<Habilidad>();

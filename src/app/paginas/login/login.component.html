@@ -1,9 +1,10 @@
-<h1>Iniciar sesion</h1>
 
-<div class="row">
-    <div class="col">
-        <pre>{{formulario.value|json}}</pre>
-        <pre>{{formulario.status|json}}</pre>
+
+<div class="row justify-content-center">
+    
+    <div class="col-5">
+        <h1>Iniciar sesion</h1>
+        
 
         <form [formGroup]="formulario" (ngSubmit)="enviar(formulario.value)" >
             <div class="form-group">
@@ -14,7 +15,7 @@
             <br>
             <div class="form-group">
                 <input class="form-control" formControlName="password" type="password" placeholder="contraseña">
-                <small *ngIf="formulario.controls.password.invalid && formulario.controls.password.dirty" class="text-danger">Escribe bien ostia</small>
+                <small *ngIf="formulario.controls.password.invalid && formulario.controls.password.dirty" class="text-danger">Formato de contraseña incorrecto</small>
                 <small *ngIf="formulario.controls.password.valid" class="text-success">formato valido</small>
             </div>
             <br>
